@@ -29,6 +29,7 @@ function displayWeather(weatherObject) {
     const { temp, conditions, cloudcover, humidity } = weatherObject;
 
     const weatherNode = document.querySelector('.weather');
+    const loadingComponent = document.querySelector('.loading-comp');
 
     const tempNode = document.querySelector('.temp');
     const condNode = document.querySelector('.conditions');
@@ -39,11 +40,19 @@ function displayWeather(weatherObject) {
     condNode.textContent = `Weather Condition: ${conditions}`;
     humidityNode.textContent = `Humidity: ${humidity}`;
     cloudCoverNode.textContent = `Cloud Cover: ${cloudcover}`;
+
     weatherNode.classList.remove('hidden');
+    document.body.removeChild(loadingComponent);
 }
 
 searchForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    const weatherNode = document.querySelector('.weather');
+
+    const loadingComponent = document.createElement('span');
+    loadingComponent.setAttribute('class', 'loading-comp');
+    loadingComponent.textContent = '...loading...';
+    document.body.insertBefore(loadingComponent, weatherNode);
 
     const searchInput = document.querySelector('.search');
 

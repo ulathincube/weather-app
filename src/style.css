@@ -125,7 +125,7 @@ ol {
 
 .form {
     width: 50%;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
 }
 
 .form-row {
@@ -161,6 +161,14 @@ ol {
     background-color: var(--foreground-color);
     color: var(--background-color);
     padding: 1rem;
+}
+
+.loading-comp {
+    position: absolute;
+    font-weight: 600;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .weather.hidden {
