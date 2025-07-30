@@ -26,12 +26,20 @@ async function returnWeatherData(response) {
 }
 
 function displayWeather(weatherObject) {
-    const { temp, conditions } = weatherObject;
+    const { temp, conditions, cloudcover, humidity } = weatherObject;
+
+    const weatherNode = document.querySelector('.weather');
+
     const tempNode = document.querySelector('.temp');
     const condNode = document.querySelector('.conditions');
+    const humidityNode = document.querySelector('.humidity');
+    const cloudCoverNode = document.querySelector('.clouds');
 
-    tempNode.textContent = temp;
-    condNode.textContent = conditions;
+    tempNode.textContent = `Temperature: ${temp}`;
+    condNode.textContent = `Weather Condition: ${conditions}`;
+    humidityNode.textContent = `Humidity: ${humidity}`;
+    cloudCoverNode.textContent = `Cloud Cover: ${cloudcover}`;
+    weatherNode.classList.remove('hidden');
 }
 
 searchForm.addEventListener('submit', async (event) => {
